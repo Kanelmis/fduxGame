@@ -1,3 +1,4 @@
+//首页 弹出二维码 以及下载功能 
 function openWindow(obj) {
     var link = "light_android";
     switch (obj.id) {
@@ -23,6 +24,7 @@ function closeWindow() {
 
 }
 
+//检测ESC 或者点击蒙版
 window.document.onkeydown = function(e) {
     if (!e) {
       e = event;
@@ -32,6 +34,7 @@ window.document.onkeydown = function(e) {
     }
   }
   
+  //PV播放
   function lightbox_open() {
     var lightBoxVideo = document.getElementById("VisaChipCardVideo");
     window.scrollTo(0, 0);
@@ -47,7 +50,7 @@ window.document.onkeydown = function(e) {
     lightBoxVideo.pause();
   }
 
-
+//公众号二维码 分享
   function lightbox_open_wechat() {
     window.scrollTo(0, 0);
     document.getElementById('lightQR').style.display = 'block';

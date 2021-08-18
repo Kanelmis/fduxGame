@@ -105,7 +105,7 @@ This page is used to display the static frontpage.
                 <div id="light">
                     <a class="boxclose" id="boxclose" onclick="lightbox_close();"></a>
                     <video id="VisaChipCardVideo" width="600" controls>
-                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        <source src="<?php bloginfo('template_url'); ?>./videos/videoplayback.mp4" type="video/mp4">
                         <!--Browser does not support <video> tag -->
                     </video>
                 </div>

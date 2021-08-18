@@ -76,7 +76,7 @@
             ?>
             <span class="sep"> | </span>
             <?php
-            echo esc_html__('Theme : Retina Blog By ','retina-blog')."<a href=".esc_url('https://thememattic.com')." target='_blank'>".esc_html__('Thememattic Team','retina-blog')."</a>";
+            echo esc_html__('幻爵工作室 ','retina-blog')."<a href=".esc_url('https://playoverwatch.com/en-us/')." target='_blank'>".esc_html__('Sincerely','retina-blog')."</a>";
             ?>
         </div><!-- .site-info -->
     </div>
