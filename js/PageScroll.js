@@ -47,6 +47,7 @@
 				this.index = (this.settings.index>=0 && this.settings.index < this.pagesCount)? this.settings.index : 0;
 				//内页滚动标识位
 				this.index2 = 0;
+				this.index3 = this.section.length;
 				this.canScroll = true;
 				
 				  
@@ -99,8 +100,9 @@
 			in_prev : function(){
 				if(this.index2 > 0){
 					this.index2 --;
-				}else if(this.settings.loop){
-					this.index2 = me.insection.length - 1;
+					//Loop
+				}else if(true){
+					this.index2 = this.insection.length - 1;
 				}
 				this._inscrollPage();
 			},
@@ -108,7 +110,7 @@
 			in_next : function(){
 				if(this.index2 < this.insection.length){
 					this.index2 ++;
-				}else if(this.settings.loop){
+				}else if(true){
 					this.index2 = 0;
 				}
 				this._inscrollPage();

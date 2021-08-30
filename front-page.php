@@ -73,9 +73,6 @@ This page is used to display the static frontpage.
 				<li class="navMenuItem" data-key="staff" data-cursor="pointer"><a href="javascript:void(0);"><span
 							class="navMenuItemName">CHARACTER</span><span class="navMenuItemTitle">角色</span></a></li>
 			</ol>
-
-
-
 		</div>
 	-->
     <!--页脚显示当前页数-->
@@ -88,10 +85,7 @@ This page is used to display the static frontpage.
 
 
     <!--滚轮提示-->
-    <div class="scrollTips" id="scrollTips">
-        <div class="scrollTipsText">SCROLL</div>
-        <span class="scrollTipsArrow" :first-of-type></span><span class="scrollTipsArrow" :last-of-type></span>
-    </div>
+
 
 
 
@@ -130,9 +124,43 @@ This page is used to display the static frontpage.
                 <!--预约界面-->
                 <div class="ReservationWrapper">
                     <button class="reserve" style="vertical-align:middle"
-                        onclick="alert('To be done')"><span>立即预约</span></button>
+                        onclick="popReserve()"><span>立即预约</span></button>
                 </div>
 
+                <!-- 预约弹窗-->
+                <div id="reservePop" class="reservePop">
+                    <a class="boxclose2" id="boxclose2" onclick="close_reservePop();"></a>
+                    <div id="checkType">
+                        <input type="checkbox" id="type1" name="ios" value="ios" onclick="checkBox(this.value)">
+                        <label for="ios">IOS</label>
+                        <input type="checkbox" id="type2" name="android" value="android" onclick="checkBox(this.value)">
+                        <label for="android">安卓</label>
+
+                    </div>
+                    <div class="inputWrapper">
+
+                    <div class="getPhoneNumber" style="height: 6rem;">
+                        <i class="icon-phone"></i>
+                        <input id="reserve-phone" type="text" placeholder="请输入手机号码">
+
+                    </div>
+                    <div class="validation">
+                        <div class="validInput">
+                            <i class="icon-key"></i>
+                            <input id="reserve-validate" type="text" placeholder="请输入验证码" style="height:5rem;">
+                        </div>
+                        <button id="sendValidation">获取验证码</button>
+                    </div>
+</div>
+
+                    <p>
+                        <button id="register">一起双向奔赴</button>
+                    </p>
+                </div>
+
+
+
+                <!-- 下载链接 
                 <div class="downloadBtnWrapper mainDownload">
                     <div class="android"><a href="#" id="download_Android" onclick="openWindow(this)">Android
                             下载链接</a>
@@ -144,6 +172,12 @@ This page is used to display the static frontpage.
                 <div id="QRfade" class="black_overlay" onclick="closeWindow()">
 
                 </div>
+                -->
+                <div class="scrollTips" id="scrollTips">
+                    <div class="scrollTipsText">SCROLL</div>
+                    <span class="scrollTipsArrow" :first-of-type></span><span class="scrollTipsArrow"
+                        :last-of-type></span>
+                </div>
 
             </div>
             <div class="section section-2" id="section-information">
@@ -151,12 +185,7 @@ This page is used to display the static frontpage.
                 <!--依照相同的模板添加新的块-->
                 <div class="sectionDisplay">
                     <div class="articleCategory informationCategory">
-                        <ol class="articleCategoryList">
-                            <li class="articleCategoryItem active" data-cursor="pointer" data-type="-1"
-                                data-key="LATEST">最新
-                            </li>
-
-                        </ol>
+                        <span>新闻</span>
                     </div>
                     <div class="informationBannerWrapper">
                         <div class="banner informationBanner">
@@ -194,33 +223,33 @@ This page is used to display the static frontpage.
                     </div>
                     <div class="articleContainer informationArticleContainer">
                         <div class="articleListWrapper">
-                            <ol class="articleList active" data-category-key="LATEST">
-                                <li class="articleItem"><a class="articleItemLink" href="/news/2021089306.html"
+                            <ol class="articleList" data-category-key="LATEST">
+                                <li class="articleItem display"><a class="articleItemLink" href="/news/2021089306.html"
                                         target="_blank"><span class="articleItemDate">2021-08-02</span><span
                                             class="articleItemCate">公告</span>
                                         <h1 class="articleItemTitle"> [XXX]绝赞开发中</h1>
                                     </a></li>
-                                <li class="articleItem"><a class="articleItemLink" href="/news/2021079658.html"
+                                <li class="articleItem display"><a class="articleItemLink" href="/news/2021079658.html"
                                         target="_blank"><span class="articleItemDate">2021-07-25</span><span
                                             class="articleItemCate">活动</span>
                                         <h1 class="articleItemTitle">快来一起打派派</h1>
                                     </a></li>
-                                <li class="articleItem"><a class="articleItemLink" href="/news/2021079619.html"
+                                <li class="articleItem display"><a class="articleItemLink" href="/news/2021079619.html"
                                         target="_blank"><span class="articleItemDate">2021-07-25</span><span
                                             class="articleItemCate">公告</span>
                                         <h1 class="articleItemTitle">快来一起打LOL</h1>
                                     </a></li>
-                                <li class="articleItem"><a class="articleItemLink" href="/news/2021079381.html"
+                                <li class="articleItem display"><a class="articleItemLink" href="/news/2021079381.html"
                                         target="_blank"><span class="articleItemDate">2021-07-25</span><span
                                             class="articleItemCate">公告</span>
                                         <h1 class="articleItemTitle">OW狗都不玩</h1>
                                     </a></li>
-                                <li class="articleItem"><a class="articleItemLink" href="/news/2021079342.html"
+                                <li class="articleItem display"><a class="articleItemLink" href="/news/2021079342.html"
                                         target="_blank"><span class="articleItemDate">2021-07-25</span><span
                                             class="articleItemCate">公告</span>
                                         <h1 class="articleItemTitle">真香</h1>
                                     </a></li>
-                                <li class="articleItem"><a class="articleItemLink" href="/news/2021079395.html"
+                                <li class="articleItem display"><a class="articleItemLink" href="/news/2021079395.html"
                                         target="_blank"><span class="articleItemDate">2021-07-30</span><span
                                             class="articleItemCate">公告</span>
                                         <h1 class="articleItemTitle"> 震惊！氪金母猪竟是我自己</h1>
@@ -228,6 +257,7 @@ This page is used to display the static frontpage.
                             </ol>
 
                         </div>
+
                         <div class="articleFooter">
                             <div class="articlePagination"></div>
                             <div class="articleMore"><a class="articleMoreButton" href="/news.html"
@@ -247,6 +277,7 @@ This page is used to display the static frontpage.
                 <div class="insection insection-1">
                     <div class="character_display">
                         <div class="intro">
+
                             <p>
                                 我不想喜欢乃琳小姐了。
                                 原因有很多。
@@ -272,6 +303,7 @@ This page is used to display the static frontpage.
                                 原因只有一个。
                                 我已经爱上乃琳小姐了。[给心心][给心心]
                             </p>
+
                             <div class="articleMore"><a class="articleMoreButton" href="/news.html"
                                     target="_blank"><span>更多情报</span><svg xmlns="http://www.w3.org/2000/svg"
                                         xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 18">
@@ -279,26 +311,30 @@ This page is used to display the static frontpage.
                                     </svg></a>
                             </div>
                         </div>
+                        <div class="char_infor">
+                            <img class="drawing" src="<?php bloginfo('template_url');?>./images/Voca/Miku.png" />
+                            <div class="char_name">
+                                <span>Miku</span>
 
-                        <img src="<?php bloginfo('template_url');?>./images/Voca/Miku.png" />
+                                <a href="#" id="playsound1" onclick="playAudio('voice_miku')"><img
+                                        src="<?php bloginfo('template_url');?>./images/audio.png"></a>
+                                <audio id="voice_miku">
+                                    <source src="<?php bloginfo('template_url');?>./audios/char/miku.mp3"
+                                        type="audio/mpeg" />
+                                    Your browser does not support the audio element.
+                                </audio>
+
+                            </div>
+
+                        </div>
+
                     </div>
-
                 </div>
+
                 <div class="insection insection-2">
                     <div class="character_display">
                         <div class="intro">
-                            <div class="char_infor">
-                                <div class="char_name">
-                                </div>
-                                <div class="voice_play">
-                                    <audio id="myAudio">
-                                        <source src="<?php bloginfo('template_url');?>./audios/char/miku.mp3"
-                                            type="audio/mpeg" />
-                                        Your browser does not support the audio element.
-                                    </audio>
-                                    <a href="#" id="playsound" onclick="playAudio()">点一下买不了吃亏</a>
-                                </div>
-                            </div>
+
                             <p>
                                 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣤⠖⠫⣍⢿⣯⡄⠠⡀ <br>
                                 ⠀⠀⠀⠀⠀⠀⠀⠀⢀⡶⠋⠀⠀⠀⣹⢿⢿⡇ <br>
@@ -331,8 +367,22 @@ This page is used to display the static frontpage.
                                         <path d="M6 13 h35 l-6 -6" fill="none"></path>
                                     </svg></a></div>
                         </div>
+                        <div class="char_infor">
+                            <img class="drawing" src="<?php bloginfo('template_url');?>./images/Voca/Luka.png" />
+                            <div class="char_name">
+                                <span>Luka</span>
 
-                        <img src="<?php bloginfo('template_url');?>./images/Voca/Luka.png" />
+                                <a href="#" id="playsound2" onclick="playAudio('voice_miku')"><img
+                                        src="<?php bloginfo('template_url');?>./images/audio.png"></a>
+                                <audio id="voice_miku">
+                                    <source src="<?php bloginfo('template_url');?>./audios/char/miku.mp3"
+                                        type="audio/mpeg" />
+                                    Your browser does not support the audio element.
+                                </audio>
+
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
@@ -350,10 +400,23 @@ This page is used to display the static frontpage.
                                         <path d="M6 13 h35 l-6 -6" fill="none"></path>
                                     </svg></a></div>
                         </div>
+                        <div class="char_infor">
+                            <img class="drawing" src="<?php bloginfo('template_url');?>./images/Voca/Meiko.png" />
+                            <div class="char_name">
+                                <span>Meiko</span>
 
-                        <img src="<?php bloginfo('template_url');?>./images/Voca/Meiko.png" />
+                                <a href="#" id="playsound3" onclick="playAudio('voice_Meiko')"><img
+                                        src="<?php bloginfo('template_url');?>./images/audio.png"></a>
+                                <audio id="voice_miku">
+                                    <source src="<?php bloginfo('template_url');?>./audios/char/miku.mp3"
+                                        type="audio/mpeg" />
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 <div class="insection insection-4">
                     <div class="character_display">
                         <div class="intro">
@@ -381,10 +444,30 @@ This page is used to display the static frontpage.
                                 2021年8月11日，19:27，在与乃琳一起的双播中，珈乐说自己过生日不会哭
                                 2021年8月14日，21:33，在七夕抖限直播中，珈乐说生日回不会哭。
                             </p>
+                            <div class="articleMore"><a class="articleMoreButton" href="/news.html"
+                                    target="_blank"><span>更多情报</span><svg xmlns="http://www.w3.org/2000/svg"
+                                        xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 48 18">
+                                        <path d="M6 13 h35 l-6 -6" fill="none"></path>
+                                    </svg></a></div>
                         </div>
-                        <img src="<?php bloginfo('template_url');?>./images/Voca/Rin.png" />
+                        <div class="char_infor">
+                            <img class="drawing" src="<?php bloginfo('template_url');?>./images/Voca/Rin.png" />
+                            <div class="char_name">
+                                <span>Rin</span>
+
+                                <a href="#" id="playsound4" onclick="playAudio('voice_miku')"><img
+                                        src="<?php bloginfo('template_url');?>./images/audio.png"></a>
+                                <audio id="voice_miku">
+                                    <source src="<?php bloginfo('template_url');?>./audios/char/miku.mp3"
+                                        type="audio/mpeg" />
+                                    Your browser does not support the audio element.
+                                </audio>
+
+                            </div>
+                        </div>
                     </div>
                 </div>
+
                 <div class="insection insection-5">
                     <div class="character_display">
                         <div class="intro">
@@ -416,21 +499,39 @@ This page is used to display the static frontpage.
                                     </svg></a></div>
 
                         </div>
-                        <img src="<?php bloginfo('template_url');?>./images/Voca/Rin.png" />
-                    </div>
+                        <div class="char_infor">
+                            <img class="drawing" src="<?php bloginfo('template_url');?>./images/Voca/Yurika.png" />
+                            <div class="char_name">
+                                <span>Yurika</span>
 
+                                <a href="#" id="playsound5" onclick="playAudio('voice_miku')"><img
+                                        src="<?php bloginfo('template_url');?>./images/audio.png"></a>
+                                <audio id="voice_miku">
+                                    <source src="<?php bloginfo('template_url');?>./audios/char/miku.mp3"
+                                        type="audio/mpeg" />
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+
+                        </div>
+
+                    </div>
                 </div>
             </div>
-
         </div>
     </div>
+
+
+
+
     <script src="<?php bloginfo('template_url'); ?>./js/PageScroll.js"></script>
     <script type="text/javascript">
-        //播放语音
-        var x = document.getElementById("myAudio");
 
-        function playAudio() {
-            x.play();
+        //播放语音
+
+        function playAudio(x) {
+            var p = document.getElementById(x);
+            p.play();
         }
         //插件初始化
         $('.videolist').each(function () { //遍历视频列表

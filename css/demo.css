@@ -523,7 +523,6 @@ img {
 }
 
 
-
 /* section -1 */
 
 #container,.sections{
@@ -716,10 +715,147 @@ source{
 } 
 
 
+ /* 预约弹窗 */
+  .reservePop{
+    margin:0;
+    border-radius: 20px;
+    display: none;
+    position:absolute;
+    top:42%;
+    left:50%;
+    transform: translateX(-50%);
+    background-image: linear-gradient( rgba(37, 32, 32, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/background.jpg);
+    z-index:1002;
+    overflow:auto;
+    color:#000;
+    width:70rem;
+    align-items: center;;
+  }
+  
+.section-1 .inputWrapper{
+  padding-left:5%;
+  width: 90%;
+  
+}
+.section-1 .getPhoneNumber{
+  margin:0;
+  width: 100%;
+}
+.section-1 .getPhoneNumber .icon-phone{
+  height:5rem;
+  width:5rem;
+  position:absolute;
+  border-radius:1px;
+  background:url("../images/icon.png");
+  background-color: white;
+  background-position: 3px;
+  outline:none;
+}
 
+.section-1 .getPhoneNumber input{
+  width: 100%;
+  font-size:4rem;
+  padding-left:5rem;
+  height:5rem;
+}
 
+.section-1 .validation{
+  margin:0;
+  width: 100%;
+  display: flex;
+  
+}
+.section-1 .validInput{
 
+  overflow:auto;
+}
 
+.section-1 .validation .icon-key{
+  height:5rem;
+  width:5rem;
+  position:absolute;
+  border-radius:1px;
+  background:url("../images/icon.png");
+  background-color: white;
+  outline:none;
+}
+
+.section-1 .validation input{
+  width:100%;
+  font-size:4rem;
+  padding-left:5rem;
+  height:5rem;
+}
+ 
+.section-1 #sendValidation{
+  white-space: nowrap;
+  display: block;
+  text-overflow: ellipsis;
+  font-size:4rem;
+  height:5rem;
+  
+
+}
+.section-1 #register{
+  text-align: center;
+  text-overflow: clip;
+  font-size:4rem;
+  height:5rem;
+  clear:both;
+}
+#boxclose {
+  clear:both;
+  cursor: pointer;
+  color: #fff;
+  border: 1px solid #AEAEAE;
+  border-radius: 3px;
+  background: #222222;
+  font-size: 31px;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 0px;
+  padding: 11px 3px;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  z-index: 1002;
+  opacity: 0.9;
+}
+
+.boxclose:before {
+  content: "×";
+}
+
+#fade:hover ~ #boxclose {
+  display:none;
+}
+#boxclose2 {
+  clear:both;
+  float: right;
+  cursor: pointer;
+  color: #fff;
+  border: 1px solid #AEAEAE;
+  border-radius: 3px;
+  background: #222222;
+  font-size: 31px;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 0px;
+  padding: 11px 3px;
+  position: absolute;
+  right: 2px;
+  top: 2px;
+  z-index: 1002;
+  opacity: 0.9;
+}
+
+.boxclose2:before {
+  content: "×";
+}
+
+#fade:hover ~ #boxclose2 {
+  display:none;
+}
 
 
 /* 二维码弹出 masking */
@@ -754,6 +890,8 @@ source{
     width:23rem;
   }
 
+
+  
 /* PV弹窗 */
 .pvContainer{
   height: 100%;
@@ -789,7 +927,7 @@ source{
 }
 
  #light {
-  width:50%;
+  width:600px;
   display: none;
   position: absolute;
   top:30%;
@@ -803,32 +941,7 @@ source{
   overflow: visible;
 }
 
-#boxclose {
-  float: right;
-  cursor: pointer;
-  color: #fff;
-  border: 1px solid #AEAEAE;
-  border-radius: 3px;
-  background: #222222;
-  font-size: 31px;
-  font-weight: bold;
-  display: inline-block;
-  line-height: 0px;
-  padding: 11px 3px;
-  position: absolute;
-  right: 2px;
-  top: 2px;
-  z-index: 1002;
-  opacity: 0.9;
-}
 
-.boxclose:before {
-  content: "×";
-}
-
-#fade:hover ~ #boxclose {
-  display:none;
-}
 
 /* Information section */
 .section-2{
@@ -848,7 +961,7 @@ section.section {
   overflow: hidden;
 }
 
-section.section .sectionDisplay {
+.section-2 .sectionDisplay {
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -876,21 +989,23 @@ section.section .sectionDisplay {
 
 
 
-
+.section-2 .informationCategory{
+      align-items: center;
+}
 
 @media only screen and (min-width: 429px) {
   .section-2 .informationCategory {
-      width: 54.25rem;
+      width: 88%;
       margin-left: 5.875rem;
   }
   .section-2 .informationBannerWrapper {
       margin-top: 2.625rem;
       margin-left: 5.875rem;
-      width: 54.25rem;
+      width: 60%;
   }
   .section-2 .informationArticleContainer {
       margin-top: 1rem;
-      width: 60.125rem;
+      width: 88%;
       flex-grow: 1;
       flex-shrink: 1;
       display: flex;
@@ -951,6 +1066,21 @@ section.section .sectionDisplay {
   height: 100%;
 }
 
+@media only screen and (min-width: 429px){
+.section-2 .informationArticleContainer .articleFooter {
+    margin: 2.75rem auto 0 5.875rem;
+    width: 54.25rem;
+  }
+}
+
+@media only screen and (min-width: 429px){
+.articleFooter {
+    height: 2rem;
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
 @media only screen and (min-width: 429px) {
   .banner {
       box-shadow: inset 0 -20px 15px -5px #000;
@@ -965,21 +1095,14 @@ section.section .sectionDisplay {
 }
 
 .articleContainer .articleList {
-  display: none;
-}
-
-.articleContainer .articleList.active {
   display: flex;
 }
+
 
 .articleContainer .articleList .articleItem {
-  display: flex;
-}
-
-.articleContainer .articleList .articleItem.display {
-  margin-top:auto;
   display: block;
 }
+
 
 .articleFooter .articlePaginationList {
   display: flex;
@@ -1100,9 +1223,9 @@ section.section .sectionDisplay {
 @media only screen and (min-width: 429px) {
   .articleCategory {
       display: flex;
-      justify-content: flex-end;
-      height: 2.25rem;
-      font-size: 1.25rem;
+      justify-content: center;
+      height: 5rem;
+      font-size: 5rem;
       font-family: "SansMedium";
   }
   .articleCategory .articleCategoryItem {
@@ -1256,7 +1379,6 @@ section.section .sectionDisplay {
       color: #000;
   }
   .articleContainer .articleListWrapper {
-      flex-shrink: 0;
       flex-grow: 1;
       position: relative;
       display: block;
@@ -1534,38 +1656,6 @@ text-decoration: none;
 height: 100%;
 }
 
-/* 排版 展示 */
-.insection .character_display{
-  position: relative;
-  height: 100%;
-  width:100%;
-}
-
-.character_display img{
-  left:50%;
-  position: absolute;
-  top:50%;
-  transform: translateY(-50%);
-}
-
-.character_display .intro{
-  position:absolute;
-  width:45%;
-  top:50%;
-  transform: translateY(-50%);
-  right:50%;
-  text-align: left;
-  text-decoration: violet;
-  overflow:hidden;
-}
-
-.character_display .intro p{
-  color: rgb(200, 175, 100);
-  font-size:2rem;
-  background: rgba(1,1,1,0.5);
-  
-}
-
 
 .section-3 .insection-1{
   flex-direction: column;
@@ -1630,17 +1720,46 @@ height: 100%;
 background-color: #CC0000;
 }
 
+/* 排版 展示 */
+.insection .character_display{
+  position: relative;
+  height: 100%;
+  width:100%;
+}
 
 
-.intro .articleMore {
+.character_display .intro{
+  display:flex;
+  flex-direction: column;
+  position:absolute;
+  width:45%;
+  top:50%;
+  transform: translateY(-50%);
+  right:50%;
+  max-height:80%;
+}
+
+
+.character_display .intro p{ 
+  background: rgba(1,1,1,0.5);
+  text-align: left;
+  text-decoration: violet;
+  text-overflow: ellipsis;
+  overflow:hidden;
+  color: rgb(200, 175, 100);
+  font-size:2rem;
+  
+}
+.character_display .articleMore {
   align-items: center;
   margin-left: 1rem;
 }
 
-.intro .articleMoreButton {
+ .articleMoreButton {
+  background: rgba(1,1,1,0.5);
   color: #ababab;
   white-space: nowrap;
-  display: fixed;
+  display: relative;
   font-family: "SansMedium";
   position: relative;
   height: 100%;
@@ -1663,5 +1782,36 @@ background-color: #CC0000;
 
 .character_display .articleMoreButton:hover svg {
   stroke: #22bbff;
+}
+
+.char_infor{
+  position: absolute;
+  width:50%;
+  height:100%;
+  left:50%;
+}
+.char_name{
+  background: rgba(1,1,1,0.5);
+  top:50%;
+  transform: translateY(-50%);
+  display:inline-block;
+  font-size:4rem;
+  position:relative;
+}
+.char_name span{
+  height:6rem;
+  float:left;
+}
+.char_name img{
+  float:left;
+  height:6rem;
+}
+.char_infor .drawing{
+  max-height:70%;
+  left:0%;
+  position: absolute;
+  top:50%;
+  transform: translateY(-50%);
+  float:right;
 }
 

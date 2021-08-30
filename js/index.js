@@ -60,4 +60,27 @@ function lightbox_close_wechat() {
   document.getElementById('lightText').style.display = 'none';
 }
 
+//手机预约 弹窗
+function popReserve(){
+  window.scrollTo(0, 0);
+  document.getElementById('reservePop').style.display = 'block';
+}
 
+function close_reservePop(){
+  document.getElementById('reservePop').style.display = 'none';
+}
+
+
+//单选Checkbox
+
+function checkBox(value){
+  if(value=="ios"){
+    document.getElementById("type1").checked = true;
+    document.getElementById("type2").checked = false;
+  }
+  if(value=="android"){
+    document.getElementById("type1").checked = false;
+    document.getElementById("type2").checked = true;
+  }
+
+}
