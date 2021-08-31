@@ -128,7 +128,8 @@ This page is used to display the static frontpage.
                 </div>
 
                 <!-- 预约弹窗-->
-                <div id="reservePop" class="reservePop">
+                <form role="form" method="post" action="<?php admin_url('admin-post.php')?> " id="reservePop"
+                    class="reservePop">
                     <a class="boxclose2" id="boxclose2" onclick="close_reservePop();"></a>
                     <div id="checkType">
                         <input type="checkbox" id="type1" name="ios" value="ios" onclick="checkBox(this.value)">
@@ -139,24 +140,29 @@ This page is used to display the static frontpage.
                     </div>
                     <div class="inputWrapper">
 
-                    <div class="getPhoneNumber" style="height: 6rem;">
-                        <i class="icon-phone"></i>
-                        <input id="reserve-phone" type="text" placeholder="请输入手机号码">
+                        <div class="getPhoneNumber" style="height: 6rem;">
+                            <i class="icon-phone"></i>
+                            <input id="reserve-phone" type="text" name="reserve-phone" placeholder="请输入手机号码">
 
-                    </div>
-                    <div class="validation">
-                        <div class="validInput">
-                            <i class="icon-key"></i>
-                            <input id="reserve-validate" type="text" placeholder="请输入验证码" style="height:5rem;">
                         </div>
-                        <button id="sendValidation">获取验证码</button>
+                        <div class="validation">
+                            <div class="validInput">
+                                <i class="icon-key"></i>
+                                <input id="reserve-validate" type="text" placeholder="请输入验证码" style="height:5rem;">
+                            </div>
+                            <button type="button" id="sendValidation"
+                                onclick="alert('大胸好女人真希波, 今天也很可爱哦(*^_^*)')">获取验证码</button>
+                        </div>
                     </div>
-</div>
-
+                    <div class="checkPrivacyPolicy">
+                        <input type="checkbox" id="checkPrivacy" name="checkPrivacy" value="checkPrivacy"
+                            onclick="checkBox(this.value)">
+                        <label for="checkPrivacy">我已详细阅读并同意<a href="">《用户协议》</a>和<a href="">《隐私政策》</a>
+                    </div>
                     <p>
-                        <button id="register">一起双向奔赴</button>
+                        <input type="submit" id="submit" name="submit" value="一起双向奔赴">
                     </p>
-                </div>
+                </form>
 
 
 

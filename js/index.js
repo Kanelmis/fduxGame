@@ -82,5 +82,5 @@ function checkBox(value){
     document.getElementById("type1").checked = false;
     document.getElementById("type2").checked = true;
   }
-
 }
+

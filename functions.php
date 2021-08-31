@@ -370,4 +370,31 @@ function theme_add_bootstrap() {
     wp_enqueue_script( 'jquery-js', 'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js', array(), '3.0.0', true );
     }
     
-    add_action( 'wp_enqueue_scripts', 'theme_add_bootstrap' );
+add_action( 'wp_enqueue_scripts', 'theme_add_bootstrap' );
+
+
+
+/* 收集用户信息 */
+if (isset($_POST['submit'])){
+   
+    $table_name = 'reserve';
+
+    
+    if(isset($_POST['ios']) && $_POST['ios']!=""){
+      $data = array(
+        'type' => $_POST['ios'],
+        'phone' => $_POST['reserve-phone'],
+    );}else{
+    $data = array(
+        'type2' => $_POST['android'],
+        'phone' => $_POST['reserve-phone'],
+    );}
+
+
+   $result = $wpdb->insert($table_name,$data,$format=NULL);
+   if($result==1){
+       echo "<script>alert('预约成功！);</script>";
+   }else{
+       echo "<script>alert('请填写正确信息');</script>";
+   }
+}

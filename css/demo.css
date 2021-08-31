@@ -721,7 +721,7 @@ source{
     border-radius: 20px;
     display: none;
     position:absolute;
-    top:42%;
+    top:30%;
     left:50%;
     transform: translateX(-50%);
     background-image: linear-gradient( rgba(37, 32, 32, 0.5), rgba(0, 0, 0, 0.5) ), url(../images/background.jpg);
@@ -796,13 +796,18 @@ source{
   
 
 }
-.section-1 #register{
+.section-1 #submit{
   text-align: center;
   text-overflow: clip;
   font-size:4rem;
   height:5rem;
   clear:both;
 }
+
+.section-1 .checkPrivacyPolicy{
+  
+}
+/* 退出键 */
 #boxclose {
   clear:both;
   cursor: pointer;
@@ -829,6 +834,7 @@ source{
 #fade:hover ~ #boxclose {
   display:none;
 }
+
 #boxclose2 {
   clear:both;
   float: right;
