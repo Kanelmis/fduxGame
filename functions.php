@@ -375,26 +375,29 @@ add_action( 'wp_enqueue_scripts', 'theme_add_bootstrap' );
 
 
 /* 收集用户信息 */
-if (isset($_POST['submit'])){
-   
-    $table_name = 'reserve';
 
-    
-    if(isset($_POST['ios']) && $_POST['ios']!=""){
-      $data = array(
-        'type' => $_POST['ios'],
-        'phone' => $_POST['reserve-phone'],
-    );}else{
-    $data = array(
-        'type2' => $_POST['android'],
-        'phone' => $_POST['reserve-phone'],
-    );}
+add_action( 'wp_ajax_nopriv_add_reserve', 'add_reserve' );
+add_action( 'wp_ajax_add_reserve', 'add_reserve' );
+function add_reserve(){
+global $wpdb;
 
+$phone = $_POST["phone"];
+$type = $_POST["type"];
 
-   $result = $wpdb->insert($table_name,$data,$format=NULL);
-   if($result==1){
-       echo "<script>alert('预约成功！);</script>";
-   }else{
-       echo "<script>alert('请填写正确信息');</script>";
-   }
+$tableName = 'reserve';
+$insert_row = $wpdb->insert( 
+                $tableName, 
+                array( 
+                    'phone' => $phone, 
+                    'type' => $type, 
+                    
+                ),
+            );
+// if row inserted in table
+if($insert_row){
+    echo json_encode(array('res'=>true, 'message'=>__('New row has been inserted.')));
+}else{
+    echo json_encode(array('res'=>false, 'message'=>__('Something went wrong. Please try again later.')));
+}
+wp_die();
 }

@@ -19,7 +19,6 @@ This page is used to display the static frontpage.
     <script src="<?php bloginfo('template_url'); ?>./js/jquery-1.11.3.min.js"></script>
     <script src="<?php bloginfo('template_url'); ?>./js/PageScroll.js"></script>
     <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 
 </head>
@@ -128,13 +127,14 @@ This page is used to display the static frontpage.
                 </div>
 
                 <!-- 预约弹窗-->
-                <form role="form" method="post" action="<?php admin_url('admin-post.php')?> " id="reservePop"
-                    class="reservePop">
+                <form role="form" id="reserve_form" class="reservePop" action="#" method="POST">
                     <a class="boxclose2" id="boxclose2" onclick="close_reservePop();"></a>
                     <div id="checkType">
-                        <input type="checkbox" id="type1" name="ios" value="ios" onclick="checkBox(this.value)">
+                        <input type="checkbox" id="post_ios" name="ios" value="ios" checked="true"
+                            onclick="checkBox(this.value)">
                         <label for="ios">IOS</label>
-                        <input type="checkbox" id="type2" name="android" value="android" onclick="checkBox(this.value)">
+                        <input type="checkbox" id="post_android" name="android" value="android"
+                            onclick="checkBox(this.value)">
                         <label for="android">安卓</label>
 
                     </div>
@@ -160,11 +160,57 @@ This page is used to display the static frontpage.
                         <label for="checkPrivacy">我已详细阅读并同意<a href="">《用户协议》</a>和<a href="">《隐私政策》</a>
                     </div>
                     <p>
-                        <input type="submit" id="submit" name="submit" value="一起双向奔赴">
+                    <input type="submit" value="你被强化了快去送" name="btnsave" id="btnsave">
                     </p>
                 </form>
 
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+                <script type="text/javascript">
+                    jQuery('form#reserve_form').on('submit', function (e) {
+                        e.preventDefault();
 
+
+                        var phone = jQuery('#reserve-phone').val();
+                         var type;
+                        if($('#post_ios').is(":checked")){
+                            type = "ios";
+                        }else{
+                            type = "android"
+                        }
+                       
+                        
+                        alert(type)
+                        if ($('#post_ios' ).is(":checked")){
+                            type =  jQuery("#post_ios").val();
+                        }else{
+                            type =  jQuery("#post_android").val();
+                        }
+
+                        if( jQuery('#reserve-phone').val()=== ""  ||  jQuery('#reserve-validate').val()==="" || !$('#checkPrivacy').is(":checked")){
+                            alert("Please fill all the field");
+                            return;
+                        }
+
+                        // calling ajax
+                        $.ajax({
+                            type: 'POST',
+                            dataType: 'json',
+                            url: "<?php echo admin_url('admin-ajax.php'); ?>",
+                            data: {
+                                'action': 'add_reserve',
+                                'phone': phone,
+                                'type': type,
+                            },
+                            success: function (data) {
+                                if (data.res == true) {
+                                    alert(data.message);    // success message
+                                } else {
+                                    alert(data.message);    // fail
+                                }
+                            }
+                        });
+                    });
+                </script>
 
                 <!-- 下载链接 
                 <div class="downloadBtnWrapper mainDownload">
@@ -524,7 +570,16 @@ This page is used to display the static frontpage.
                     </div>
                 </div>
             </div>
+            <div class="section section-4" id="section-footer">
+                <!--情报页-->
+                <!--依照相同的模板添加新的块-->
+                <div class="sectionDisplay">
+                    <P>Hello</P>
+
+                </div>
+            </div>
         </div>
+    </div>
     </div>
 
 
@@ -532,7 +587,13 @@ This page is used to display the static frontpage.
 
     <script src="<?php bloginfo('template_url'); ?>./js/PageScroll.js"></script>
     <script type="text/javascript">
+        if (window.history.replaceState) {
+            window.history.replaceState(null, null, window.location.href);
+        }
 
+        $("#prospects_form").submit(function (e) {
+            e.preventDefault();
+        });
         //播放语音
 
         function playAudio(x) {
