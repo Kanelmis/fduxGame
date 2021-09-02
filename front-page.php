@@ -171,15 +171,16 @@ This page is used to display the static frontpage.
 
 
                         var phone = jQuery('#reserve-phone').val();
-                         var type;
+                        var type;
+                        
+
                         if($('#post_ios').is(":checked")){
                             type = "ios";
                         }else{
                             type = "android"
                         }
                        
-                        
-                        alert(type)
+
                         if ($('#post_ios' ).is(":checked")){
                             type =  jQuery("#post_ios").val();
                         }else{
@@ -187,12 +188,19 @@ This page is used to display the static frontpage.
                         }
 
                         if( jQuery('#reserve-phone').val()=== ""  ||  jQuery('#reserve-validate').val()==="" || !$('#checkPrivacy').is(":checked")){
-                            alert("Please fill all the field");
+                            alert("请填写所有信息");
                             return;
                         }
+                        
+                        //检查手机号码是否正确
+                        var phone_pattern =/^1[3|4|5|8][0-9]\d{4,8}$/; 
 
-                        // calling ajax
-                        $.ajax({
+                        if( !phone_pattern.test( phone)){
+                            alert("请输入正确的手机号码")
+                            document.getElementById("reserve_form").reset();
+                            return;
+                        }else{
+                             $.ajax({
                             type: 'POST',
                             dataType: 'json',
                             url: "<?php echo admin_url('admin-ajax.php'); ?>",
@@ -208,7 +216,14 @@ This page is used to display the static frontpage.
                                     alert(data.message);    // fail
                                 }
                             }
+                            
                         });
+                        }
+                           
+                        
+
+                        // calling ajax
+                       
                     });
                 </script>
 

@@ -63,11 +63,12 @@ function lightbox_close_wechat() {
 //手机预约 弹窗
 function popReserve(){
   window.scrollTo(0, 0);
-  document.getElementById('reservePop').style.display = 'block';
+  document.getElementById('reserve_form').style.display = 'block';
+  
 }
-
 function close_reservePop(){
-  document.getElementById('reservePop').style.display = 'none';
+  document.getElementById('reserve_form').style.display = 'none';
+  document.getElementById("reserve_form").reset();
 }
 
 
@@ -75,12 +76,16 @@ function close_reservePop(){
 
 function checkBox(value){
   if(value=="ios"){
-    document.getElementById("type1").checked = true;
-    document.getElementById("type2").checked = false;
+    document.getElementById("post_ios").checked = true;
+    document.getElementById("post_android").checked = false;
   }
   if(value=="android"){
-    document.getElementById("type1").checked = false;
-    document.getElementById("type2").checked = true;
+    document.getElementById("post_ios").checked = false;
+    document.getElementById("post_android").checked = true;
   }
 }
 
+//阻止重复提交
+if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}

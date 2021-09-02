@@ -395,9 +395,10 @@ $insert_row = $wpdb->insert(
             );
 // if row inserted in table
 if($insert_row){
-    echo json_encode(array('res'=>true, 'message'=>__('New row has been inserted.')));
+    echo json_encode(array('res'=>true, 'message'=>__('预约成功！.')));
 }else{
-    echo json_encode(array('res'=>false, 'message'=>__('Something went wrong. Please try again later.')));
+    echo json_encode(array('res'=>false, 'message'=>__('该手机号码已经被注册！.')));
 }
+
 wp_die();
 }
