@@ -89,3 +89,18 @@ function checkBox(value){
 if ( window.history.replaceState ) {
   window.history.replaceState( null, null, window.location.href );
 }
+
+
+//跳转页面
+function jumpTo(obj){
+  var url =  'https://genshin.mihoyo.com/zh-tw'
+  switch (obj.id) {
+    case 'qq':
+      url= "https://im.qq.com/pcqq"
+    case 'wechat':
+      url = "https://web.wechat.com/"
+      break;
+  }
+  location.href = url;
+  ;
+}
