@@ -1,6 +1,6 @@
 # fduxGame
 
-## This is the offical website of the game xx of fduxGame
+## This is the demo of a game website
 
 ##Copyright
 All images within this website will not be presented in the final product.
