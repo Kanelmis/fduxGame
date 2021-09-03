@@ -1,4 +1,4 @@
-# fduxGame
+# Kane
 
 ## This is the demo of a game website
 
